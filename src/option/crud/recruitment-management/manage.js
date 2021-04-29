@@ -12,11 +12,11 @@ export default () => {
     border: true,
     stripe: true,
     column: [{
-      label: "岗位名称",
+      label: "xiaokeia",
       prop: "name",
       search: true,
     }, {
-      label: "修改时间",
+      label: "性别",
       prop: "sex",
       type: 'select',
       dicData: [{

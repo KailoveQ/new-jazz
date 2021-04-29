@@ -2,6 +2,7 @@
   <basic-container>
     <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
     </avue-crud>
+
   </basic-container>
 </template>
 <script>
@@ -13,7 +14,7 @@ export default window.$crudCommon(
     methods: {},
   },
   {
-    name: "crud/vip", //模块名字
+    name: "crud/recruitment-management/add", //模块名字
     list: "list", //列表接口名字
     update: "update", //更新接口名字
     add: "add", //新增接口名字

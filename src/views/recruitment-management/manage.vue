@@ -13,7 +13,7 @@ export default window.$crudCommon(
     methods: {},
   },
   {
-    name: "crud/recruitment-management/index", //模块名字
+    name: "crud/recruitment-management/manage", //模块名字
     list: "list", //列表接口名字
     update: "update", //更新接口名字
     add: "add", //新增接口名字

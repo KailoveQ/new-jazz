@@ -20,6 +20,8 @@ import basicBlock from './components/basic-block/main'
 import basicContainer from './components/basic-container/main'
 import crudCommon from '@/mixins/crud.js'
 window.$crudCommon = crudCommon
+import AvueUeditor from 'avue-plugin-ueditor'
+Vue.use(AvueUeditor);
 Vue.use(router)
 Vue.use(VueAxios, axios)
 Vue.use(Element, {

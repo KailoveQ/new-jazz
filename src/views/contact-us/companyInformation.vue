@@ -2,8 +2,7 @@
   <basic-container>
     <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
     </avue-crud>
-    <avue-ueditor v-model="text" :options="options"></avue-ueditor>
-    <span class="avue-ueditor__code">{{text}}</span>
+
   </basic-container>
 </template>
 <script>
