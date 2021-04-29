@@ -11,22 +11,27 @@ export default () => {
     headerAlign: 'center',
     border: true,
     stripe: true,
+
     column: [{
-      label: "xiaokeia",
+      label: "岗位名称",
       prop: "name",
       search: true,
+      span: 24
     }, {
-      label: "性别",
-      prop: "sex",
-      type: 'select',
-      dicData: [{
-        label: '男',
-        value: 0
-      }, {
-        label: '女',
-        value: 1
+      label: "修改时间",
+      prop: "修改时间",
+      addDisplay:false,
+      rules: [{
+        required: true,
+        message: "请输入姓名",
+        trigger: "blur"
+      }]
+    }
+      , {
+        label: "内容",
+        prop: "内容",
+        type: 'ueditor',
+        span: 24
       }],
-      search: true,
-    }],
   }
 }
