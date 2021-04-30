@@ -2,36 +2,32 @@ export default () => {
   return {
     translate: false,
     searchLabelWidth: 100,
-    excelBtn: false,
+    excelBtn: true,
     labelWidth: 110,
-    selection: true,
+    selection: false,
     tip: false,
-    index: true,
+    index: false,
     align: 'center',
     headerAlign: 'center',
     border: true,
     stripe: true,
+    dateBtn: false,
 
     column: [{
       label: "岗位名称",
       prop: "name",
       search: true,
-      span: 24
+      // message: "请输入岗位名称",
+      searchRules: [{
+        required: true,
+        message: "请输入搜索岗位",
+        trigger: "blur"
+      }],
     }, {
       label: "修改时间",
-      prop: "修改时间",
+      prop: "changeTime",
       addDisplay:false,
-      rules: [{
-        required: true,
-        message: "请输入姓名",
-        trigger: "blur"
-      }]
-    }
-      , {
-        label: "内容",
-        prop: "内容",
-        type: 'ueditor',
-        span: 24
-      }],
+
+    }],
   }
 }

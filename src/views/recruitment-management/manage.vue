@@ -24,7 +24,8 @@ export default window.$crudCommon(
     res: (data) => {
       return {
         total: 0,
-        data: [],
+        data: [
+        ],
       };
     }, //列表的结构
     total: "total", //总页数

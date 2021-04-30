@@ -1,7 +1,11 @@
 <template>
   <basic-container>
-    <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
-    </avue-crud>
+    <avue-form ref="form" v-model="obj0" :option="option">
+      <template slot="menuForm">
+        <el-button icon="el-icon-user" type="primary" @click="handleSubmit">提 交</el-button>
+        <el-button icon="el-icon-delete" @click="handleEmpty">清 空</el-button>
+      </template>
+    </avue-form>
 
   </basic-container>
 </template>
@@ -9,9 +13,25 @@
 export default window.$crudCommon(
   {
     data() {
-      return {};
+      return {
+        obj0:{},
+      }
     },
-    methods: {},
+    methods:{
+      handleEmpty(){
+        this.$refs.form.resetForm();
+      },
+      handleSubmit(){
+        this.$refs.form.validate((vaild,done)=>{
+          if(vaild){
+            this.$message.success(JSON.stringify(this.obj0));
+            setTimeout(()=>{
+              done()
+            },2000)
+          }
+        })
+      }
+    }
   },
   {
     name: "crud/contact-us/companyInformation", //模块名字
