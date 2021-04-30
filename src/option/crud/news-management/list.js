@@ -6,27 +6,47 @@ export default () => {
     labelWidth: 110,
     selection: true,
     tip: false,
-    index: true,
+    index: false,
     align: 'center',
     headerAlign: 'center',
     border: true,
     stripe: true,
     column: [{
-      label: "姓名",
-      prop: "name",
-      search: true,
+      label: "封面图",
+      offset: 1,
+      prop: "url",
+      type: 'upload',
+      listType: 'picture-img',
+      accept: 'image/jpeg,image/png',
+      tip: '只能上传jpg/png文件，750*470，690*150',
+      rows: 1,
+      // span: 7,
+      rules: [
+        {
+          required: true,
+          message: "请上传图片",
+          trigger: "blur",
+        },
+      ]
     }, {
-      label: "性别",
-      prop: "sex",
+      label: "新闻名称",
+      prop: "newsName",
       type: 'select',
-      dicData: [{
-        label: '男',
-        value: 0
-      }, {
-        label: '女',
-        value: 1
-      }],
+      // dicData: [{
+      //   label: '男',
+      //   value: 0
+      // }, {
+      //   label: '女',
+      //   value: 1
+      // }],
       search: true,
-    }],
+    },{
+      label: "新闻分类",
+      prop: "newsType",
+    },
+      {
+        label: "修改时间",
+        prop: "newsChangeTimes",
+      },],
   }
 }

@@ -54,7 +54,9 @@ const user = {
       // });
       return new Promise((resolve) => {
         loginByUsername(userInfo.username, userInfo.password, userInfo.code, userInfo.redomStr).then(res => {
-          const data = res.data.data;
+          console.log(userInfo)
+          console.log(res)
+          const data = res.data.data.token;
           commit('SET_TOKEN', data);
           commit('DEL_ALL_TAG');
           commit('CLEAR_LOCK');
@@ -76,15 +78,83 @@ const user = {
     },
     GetUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
-        getUserInfo().then((res) => {
-          const data = res.data.data;
-          commit('SET_USERIFNO', data.userInfo);
+          // const data = {"msg":"操作成功","code":200,"permissions":["*:*:*"],"roles":["admin"],"user":{"searchValue":null,"createBy":"admin","createTime":"2020-11-28 12:31:57","updateBy":null,"updateTime":null,"remark":"管理员","params":{},"userId":1,"userName":"admin","nickName":"管理员","userType":"00","email":null,"phoneNumber":"18560680345","sex":"2","avatar":"https://hy-read-public.oss-cn-qingdao.aliyuncs.com/2021/01/28/507618bc245d4dd4b501fc548bcb26ef.jpeg","salt":null,"openId":null,"status":"1","delFlag":"0","loginIp":"127.0.0.1","loginDate":"2020-11-28T12:31:57.000+0800","roles":[{"searchValue":null,"createBy":null,"createTime":null,"updateBy":null,"updateTime":null,"remark":null,"params":{},"roleId":1,"roleName":"超级管理员","roleKey":null,"roleSort":"1","menuCheckStrictly":false,"status":"1","delFlag":null,"flag":false,"menuIds":null,"admin":true}],"roleIds":null,"carNum":null,"admin":true}};
+        const data = {
+          "msg":"操作成功",
+          "code":200,
+          "permissions":[
+            "*:*:*"
+          ],
+          "roles":[
+            "admin"
+          ],
+          "user":{
+            "searchValue":null,
+            "createBy":"admin",
+            "createTime":"2020-11-28 12:31:57",
+            "updateBy":null,
+            "updateTime":null,
+            "remark":"管2理员",
+            "params":{
+
+            },
+            "userId":1,
+            "userName":"admin",
+            "nickName":"管理员",
+            "userType":"00",
+            "email":null,
+            "phoneNumber":"18560680345",
+            "sex":"2",
+            "avatar":"https://hy-read-public.oss-cn-qingdao.aliyuncs.com/2021/01/28/507618bc245d4dd4b501fc548bcb26ef.jpeg",
+            "salt":null,
+            "openId":null,
+            "status":"1",
+            "delFlag":"0",
+            "loginIp":"127.0.0.1",
+            "loginDate":"2020-11-28T12:31:57.000+0800",
+            "roles":[
+              {
+                "searchValue":null,
+                "createBy":null,
+                "createTime":null,
+                "updateBy":null,
+                "updateTime":null,
+                "remark":null,
+                "params":{
+
+                },
+                "roleId":1,
+                "roleName":"超级管理员",
+                "roleKey":null,
+                "roleSort":"1",
+                "menuCheckStrictly":false,
+                "status":"1",
+                "delFlag":null,
+                "flag":false,
+                "menuIds":null,
+                "admin":true
+              }
+            ],
+            "roleIds":null,
+            "carNum":null,
+            "admin":true
+          }
+        };
+
+
+        commit('SET_USERIFNO', data.user);
           commit('SET_ROLES', data.roles);
-          commit('SET_PERMISSION', data.permission)
-          resolve(data);
-        }).catch(err => {
-          reject(err);
-        })
+          commit('SET_PERMISSION', data.permissions) ;
+        resolve(data);
+        // getUserInfo().then((res) => {
+        //   const data = res.data.data;
+        //   commit('SET_USERIFNO', data.userInfo);
+        //   commit('SET_ROLES', data.roles);
+        //   commit('SET_PERMISSION', data.permission)
+        //   resolve(data);
+        // }).catch(err => {
+        //   reject(err);
+        // })
       })
     },
     //刷新token
@@ -144,16 +214,205 @@ const user = {
     //获取系统菜单
     GetMenu({ commit }, parentId) {
       return new Promise(resolve => {
-        getMenu(parentId).then((res) => {
-          const data = res.data.data
-          let menu = deepClone(data);
+        let menu = [
+          {
+            label: "公司信息",
+            path: '/company-information',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "公司概况",
+              path: 'intro',
+              component: 'views/company-information/intro',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "企业文化",
+              path: 'culture',
+              component: 'views/company-information/culture',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "发展历程",
+              path: 'course',
+              component: 'views/company-information/course',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "资质证书",
+              path: 'certificate',
+              component: 'views/company-information/certificate',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "宣传片",
+              path: 'promotionalVideo',
+              component: 'views/company-information/promotionalVideo',
+              icon: 'icon-caidan',
+              children: []
+            }]
+          },
+          {
+            label: "产品管理",
+            path: '/product-management',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "产品列表",
+              path: 'list',
+              component: 'views/product-management/list',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "新增产品",
+              path: 'add',
+              component: 'views/product-management/add',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "产品类型",
+              path: 'type',
+              component: 'views/product-management/type',
+              icon: 'icon-caidan',
+              children: []
+            }]
+          },
+          {
+            label: "案例管理",
+            path: '/case-management',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "案例列表",
+              path: 'list',
+              component: 'views/case-management/list',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "新增案例",
+              path: 'add',
+              component: 'views/case-management/add',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "案例分类",
+              path: 'type',
+              component: 'views/case-management/type',
+              icon: 'icon-caidan',
+              children: []
+            }]
+          },
+          {
+            label: "新闻管理",
+            path: '/news-management',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "新闻列表",
+              path: 'list',
+              component: 'views/news-management/list',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "新增新闻",
+              path: 'add',
+              component: 'views/news-management/add',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "新闻类型",
+              path: 'type',
+              component: 'views/news-management/type',
+              icon: 'icon-caidan',
+              children: []
+            }]
+          },
+          {
+            label: "招聘管理",
+            path: '/recruitment-management',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "岗位管理",
+              path: 'manage',
+              component: 'views/recruitment-management/manage',
+              icon: 'icon-caidan',
+              children: []
+            },]
+          },
+          {
+            label: "联系我们",
+            path: '/contact-us',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "公司信息",
+              path: 'companyInformation',
+              component: 'views/contact-us/companyInformation',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "咨询合作",
+              path: 'refer',
+              component: 'views/contact-us/refer',
+              icon: 'icon-caidan',
+              children: []
+            },]
+          },
+          {
+            label: "权限管理",
+            path: '/authority-management',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "角色列表",
+              path: 'roles',
+              component: 'views/authority-management/roles',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "管理员列表",
+              path: 'user',
+              component: 'views/authority-management/user',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "菜单列表",
+              path: 'menu',
+              component: 'views/authority-management/menu',
+              icon: 'icon-caidan',
+              children: []
+            },]
+          },
+
+        ]
+
+          // let menu = deepClone(data);
           menu.forEach(ele => {
             addPath(ele, true);
           })
-          commit('SET_MENUALL', menu)
-          commit('SET_MENU', menu)
-          resolve(menu)
-        })
+        commit('SET_MENU', menu)
+        resolve(menu)
+
+
+
+        // getMenu(parentId).then((res) => {
+        //   const data = res.data.data
+        //   let menu = deepClone(data);
+        //   menu.forEach(ele => {
+        //     addPath(ele, true);
+        //   })
+        //   commit('SET_MENUALL', menu)
+        //   commit('SET_MENU', menu)
+        //   resolve(menu)
+        // })
       })
     },
   },
@@ -198,6 +457,8 @@ const user = {
       state.roles = roles;
     },
     SET_PERMISSION: (state, permission) => {
+      console.log(permission)
+
       state.permission = {};
       permission.forEach(ele => {
         state.permission[ele] = true;

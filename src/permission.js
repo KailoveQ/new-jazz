@@ -1,6 +1,6 @@
 /**
  * 全站权限配置
- * 
+ *
  */
 import router from './router/router'
 import store from './store'

@@ -1,6 +1,6 @@
 <template>
   <basic-container>
-    <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
+    <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page" >
     </avue-crud>
   </basic-container>
 </template>
@@ -8,7 +8,8 @@
 export default window.$crudCommon(
   {
     data() {
-      return {};
+      return {
+      }
     },
     methods: {},
   },

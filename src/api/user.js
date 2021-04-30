@@ -1,21 +1,21 @@
 import request from '@/router/axios';
 import { baseUrl } from '@/config/env';
 export const loginByUsername = (username, password, code, redomStr) => request({
-    url: baseUrl + '/user/login',
-    method: 'post',
+    url: baseUrl + '/login',
+    method: 'get',
     meta: {
         isToken: false
     },
-    data: {
+    params: {
         username,
         password,
-        code,
-        redomStr
+        // code,
+        // redomStr
     }
 })
 
 export const getUserInfo = () => request({
-    url: baseUrl + '/user/getUserInfo',
+    url: baseUrl + 'getUserInfo',
     method: 'get'
 });
 
@@ -44,7 +44,7 @@ export const sendLogs = (list) => request({
 })
 
 export const logout = () => request({
-    url: baseUrl + '/user/logout',
+    url: baseUrl + '/logout',
     meta: {
         isToken: false
     },

@@ -1,32 +1,41 @@
 export default () => {
   return {
-    translate: false,
-    searchLabelWidth: 100,
-    excelBtn: false,
-    labelWidth: 110,
-    selection: true,
-    tip: false,
-    index: true,
-    align: 'center',
-    headerAlign: 'center',
-    border: true,
-    stripe: true,
+    emptyBtn:false,
+    submitBtn:false,
     column: [{
-      label: "姓名",
-      prop: "name",
-      search: true,
-    }, {
-      label: "性别",
-      prop: "sex",
-      type: 'select',
-      dicData: [{
-        label: '男',
-        value: 0
-      }, {
-        label: '女',
-        value: 1
-      }],
-      search: true,
-    }],
+      label: "公司名称",
+      prop: "company-name",
+      span: 7,
+      row: true,
+      offset: 1,
+      rules: [{
+        required: true,
+        message: "请输入公司名称",
+        trigger: "blur"
+      }]
+    },{
+      label: "联系电话",
+      prop: "telephone",
+      span: 7,
+      row: true,
+      offset: 1,
+      rules: [{
+        required: true,
+        message: "请输入联系电话",
+        trigger: "blur"
+      }]
+    },{
+      label: "合作内容",
+      prop: "cooperative-contents",
+      type: "textarea",
+      rows: 4,
+      row: true,
+      offset: 1,
+      rules: [{
+        required: true,
+        message: "请输入邮箱",
+        trigger: "blur"
+      }]
+    }]
   }
 }

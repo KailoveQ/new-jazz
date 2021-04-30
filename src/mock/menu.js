@@ -129,12 +129,6 @@ const first = [
       component: 'views/recruitment-management/manage',
       icon: 'icon-caidan',
       children: []
-    }, {
-      label: "新增岗位",
-      path: 'add',
-      component: 'views/recruitment-management/add',
-      icon: 'icon-caidan',
-      children: []
     },]
   },
   {
