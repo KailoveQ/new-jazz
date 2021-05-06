@@ -8,7 +8,7 @@ export default {
   indexTitle: '车融易管理后台',
   lockPage: '/lock',
   tokenTime: 60000,//token过期时间
-  Authorization: 'token',
+  Authorization: 'Authorization',
   //http的status默认放行不才用统一处理的,
   statusWhiteList: [400],
   //配置首页不可关闭

@@ -13,25 +13,13 @@ export default () => {
     stripe: true,
     column: [
       {
-        label: "封面图",
+        label: "图片",
         prop: "entImg",
-        type: 'upload',
-        listType: 'picture-img',
-        accept: 'image/jpeg,image/png',
-        span: 12,
-        row: true,
         // action: baseUrl + '/oss/upload',
-        rules: [
-          {
-            required: true,
-            message: "请上传封面图",
-            trigger: "blur",
-          },
-        ]
       },
       {
-        label: "案例名称",
-        prop: "caseName",
+        label: "图片名称",
+        prop: "pictureName",
         search: true,
         rules: [
           {
@@ -42,8 +30,8 @@ export default () => {
         ]
       },
       {
-        label: "案例分类",
-        prop: "caseType",
+        label: "尺寸",
+        prop: "pictureSize",
         type: 'select',
         dicData: [{
           label: '男',
@@ -59,26 +47,6 @@ export default () => {
         prop: "changeTimes",
         search: true,
         addDisplay: false
-      },
-      {
-        label: "案例详情",
-        prop: "caseConetnt",
-        type: 'ueditor',
-        hide: true,
-        span: 24,
-        options: {
-          // action: baseUrl + "/oss/upload",
-          props: {
-            url: "url"
-          },
-        },
-        rules: [
-          {
-            required: true,
-            message: "请输入案例详情",
-            trigger: "blur",
-          },
-        ]
       }
     ],
   }

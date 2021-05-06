@@ -212,9 +212,10 @@ const user = {
       })
     },
     //获取系统菜单
-    GetMenu({ commit }, parentId) {
+    GetMenu({ commit }, parentId) { /* eslint-disable */
       return new Promise(resolve => {
         let menu = [
+          /* eslint-disable */
           {
             label: "公司信息",
             path: '/company-information',
@@ -265,18 +266,6 @@ const user = {
               component: 'views/product-management/list',
               icon: 'icon-caidan',
               children: []
-            }, {
-              label: "新增产品",
-              path: 'add',
-              component: 'views/product-management/add',
-              icon: 'icon-caidan',
-              children: []
-            }, {
-              label: "产品类型",
-              path: 'type',
-              component: 'views/product-management/type',
-              icon: 'icon-caidan',
-              children: []
             }]
           },
           {
@@ -291,19 +280,7 @@ const user = {
               component: 'views/case-management/list',
               icon: 'icon-caidan',
               children: []
-            }, {
-              label: "新增案例",
-              path: 'add',
-              component: 'views/case-management/add',
-              icon: 'icon-caidan',
-              children: []
-            }, {
-              label: "案例分类",
-              path: 'type',
-              component: 'views/case-management/type',
-              icon: 'icon-caidan',
-              children: []
-            }]
+            },]
           },
           {
             label: "新闻管理",
@@ -317,19 +294,7 @@ const user = {
               component: 'views/news-management/list',
               icon: 'icon-caidan',
               children: []
-            }, {
-              label: "新增新闻",
-              path: 'add',
-              component: 'views/news-management/add',
-              icon: 'icon-caidan',
-              children: []
-            }, {
-              label: "新闻类型",
-              path: 'type',
-              component: 'views/news-management/type',
-              icon: 'icon-caidan',
-              children: []
-            }]
+            },]
           },
           {
             label: "招聘管理",
@@ -361,6 +326,26 @@ const user = {
               label: "咨询合作",
               path: 'refer',
               component: 'views/contact-us/refer',
+              icon: 'icon-caidan',
+              children: []
+            },]
+          },
+          {
+            label: "系统设置",
+            path: '/system-settings',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "基础设置",
+              path: 'basics',
+              component: 'views/system-settings/basics',
+              icon: 'icon-caidan',
+              children: []
+            }, {
+              label: "图片修改",
+              path: 'imageEditor',
+              component: 'views/system-settings/imageEditor',
               icon: 'icon-caidan',
               children: []
             },]

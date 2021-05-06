@@ -13,19 +13,22 @@ export default window.$crudCommon(
     methods: {},
   },
   {
-    name: "crud/recruitment-management/manage", //模块名字
+    name: "crud/system-settings/basics", //模块名字
     list: "list", //列表接口名字
     update: "update", //更新接口名字
     add: "add", //新增接口名字
     del: "del", //删除接口名字
     rowKey: "id", //主键
-    pageNumber: "pageIndex", //页码
+    pageNumber: "pageNumber", //页码
     pageSize: "pageSize", //页数
     res: (data) => {
-      return data.data;
+      return {
+        total: 0,
+        data: [],
+      };
     }, //列表的结构
     total: "total", //总页数
-    data: "records", //列表属性
+    data: "list", //列表属性
   }
 );
 </script>

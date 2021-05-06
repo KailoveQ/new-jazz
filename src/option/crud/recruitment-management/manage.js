@@ -15,7 +15,7 @@ export default () => {
     searchShow: false,
     column: [ {
         label: "岗位名称",
-        prop: "workName",
+        prop: "name",
         rules: [
           {
             required: true,
@@ -24,10 +24,10 @@ export default () => {
           },
         ]
       }, {
-        label: "薪资",
-        prop: "workMoney",
+        label: "状态",
+        prop: "status",
         type: 'select',
-        value: '5',
+        value: 0,
         dicData: [{
           label: "活动信息",
           value: '1'
@@ -47,14 +47,14 @@ export default () => {
         rules: [
           {
             required: true,
-            message: "请选择广告类型",
+            message: "请选择薪资区域",
             trigger: "blur",
           },
         ]
       },
       {
         label: "岗位详情",
-        prop: "workConetnt",
+        prop: "detail",
         type: 'ueditor',
         hide: true,
         span: 24,
@@ -67,7 +67,7 @@ export default () => {
         rules: [
           {
             required: true,
-            message: "请输入活动详情",
+            message: "请输入岗位详情",
             trigger: "blur",
           },
         ]

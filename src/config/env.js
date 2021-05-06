@@ -7,6 +7,7 @@ let codeUrl = `${baseUrl}/code`
 const env = process.env
 if (env.NODE_ENV == 'development') {
   baseUrl = `http://192.168.40.225:8080`; // 开发环境地址
+  // baseUrl = `http://www.huwanglun.com/cms`; // 开发环境地址
 } else if (env.NODE_ENV == 'production') {
   baseUrl = ``; //生产环境地址
 } else if (env.NODE_ENV == 'test') {
