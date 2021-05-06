@@ -5,13 +5,22 @@
   </basic-container>
 </template>
 <script>
+
 export default window.$crudCommon(
-  {
-    data() {
-      return {};
+    {
+      data() {
+        return {
+
+        };
+      },
+      methods: {
+        listAfter(data){
+          data.records.map(item=>{
+            item.status=item.status.code
+          })
+        },
+      },
     },
-    methods: {},
-  },
   {
     name: "crud/recruitment-management/manage", //模块名字
     list: "list", //列表接口名字
@@ -23,6 +32,7 @@ export default window.$crudCommon(
     pageSize: "pageSize", //页数
     res: (data) => {
       return data.data;
+
     }, //列表的结构
     total: "total", //总页数
     data: "records", //列表属性

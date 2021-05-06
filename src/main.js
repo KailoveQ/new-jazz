@@ -39,6 +39,18 @@ Object.keys(urls).forEach(key => {
   Vue.prototype[key] = urls[key];
 })
 
+Vue.prototype.vaildPermission = (target, permission, defaultValue = false) => {
+  const permissionList = target.$store.getters.permission
+  let value = false
+  if (permissionList['*:*:*']) {
+    value = true
+  } else {
+    value = target.vaildData(permissionList[permission], defaultValue)
+  }
+  return value
+}
+
+
 // 动态加载阿里云字体库
 iconfontVersion.forEach(ele => {
   loadStyle(iconfontUrl.replace('$key', ele));

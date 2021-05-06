@@ -12,23 +12,28 @@ export const list = ({networkId=1,pageSize=10,pageIndex=1}) => {
     // params: data
   })
 }
-export const del = (id) => request.delete(baseUrl + '/crud/delete', {
-  params: {
-    id
-  }
+// export const del = (id) => request.delete(`${apiUrl}/${id}`, {
+//   params: {
+//     id
+//   }
+// })
+export const del = (id) => request({
+  url: `${apiUrl}/`,
+  method: 'delete',
+  data: [id]
 })
+
 export const add = (data) => request({
   url: `${apiUrl}/${1}`,
   method: 'put',
-
   data: data
 })
-export const update = (id, data,recruitId) => request({
-  url: `${apiUrl}/${recruitId}`,
+export const update = (id,data) => request({
+  url: `${apiUrl}/${id}`,
   method: 'patch',
-  meta: {
-    isSerialize: true
-  },
+  // meta: {
+  //   isSerialize: true
+  // },
   data: data
 })
 
