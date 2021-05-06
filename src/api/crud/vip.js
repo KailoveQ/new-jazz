@@ -33,5 +33,9 @@ export const update = (id, data) => request({
   data: data
 })
 
-
+/**
+ * 修改状态（启用、禁用）
+ * @param {string} id
+ * @param {number} status
+ */
 

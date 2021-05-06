@@ -47,7 +47,7 @@ export default () => {
       {
         label: "岗位详情",
         prop: "detail",
-        type: 'ueditor',
+        // type: 'ueditor',
         hide: true,
         span: 24,
         options: {

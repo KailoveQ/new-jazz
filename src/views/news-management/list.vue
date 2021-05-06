@@ -11,7 +11,15 @@ export default window.$crudCommon(
       return {
       }
     },
-    methods: {},
+    methods: {
+      listAfter(data){
+        console.log(data)
+        data.records.map(item=>{
+          item.status=item.status.code
+          console.log(item.status)
+        })
+      },
+    },
   },
   {
     name: "crud/news-management/list", //模块名字
@@ -20,16 +28,13 @@ export default window.$crudCommon(
     add: "add", //新增接口名字
     del: "del", //删除接口名字
     rowKey: "id", //主键
-    pageNumber: "pageNumber", //页码
+    pageNumber: "pageIndex", //页码
     pageSize: "pageSize", //页数
     res: (data) => {
-      return {
-        total: 0,
-        data: [],
-      };
+      return data.data
     }, //列表的结构
     total: "total", //总页数
-    data: "list", //列表属性
+    data: "records", //列表属性
   }
 );
 </script>

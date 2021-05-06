@@ -37,5 +37,13 @@ export const update = (id,data) => request({
   data: data
 })
 
+export const updateStatus = (id) => request({
+  url: `${apiUrl}/status/${id}`,
+  method: 'patch',
+  data: {
+    id, status
+  }
+  // data: id
+})
 
 

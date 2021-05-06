@@ -1,23 +1,68 @@
 <template>
   <basic-container>
     <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
+
+      <template slot-scope="{ type, size, row }" slot="menu">
+        {{status}}
+        <el-button
+          icon="el-icon-video-pause"
+          :size="size"
+          :type="type"
+          v-if="permissionList.status && row.status == 0"
+          @click="handleBtnClick('updateStatus', row)"
+        >下线
+        </el-button>
+        <el-button
+            icon="el-icon-video-play"
+            :size="size"
+            :type="type"
+            v-if="permissionList.status && row.status == 1"
+            @click="handleBtnClick('updateStatus', row)"
+        >上线
+        </el-button>
+
+      </template>
     </avue-crud>
   </basic-container>
 </template>
 <script>
-
+import { updateStatus } from "@/api/crud/recruitment-management/manage";
 export default window.$crudCommon(
     {
       data() {
         return {
-
         };
+      },
+      computed: {
+        permissionList() {
+          return {
+            status: this.vaildPermission(this, "recruit/status/id"),
+          };
+        },
       },
       methods: {
         listAfter(data){
           data.records.map(item=>{
             item.status=item.status.code
           })
+        },
+        handleBtnClick(type, row) {
+          // console.log(`${type},${row},${params}`)
+          switch (type) {
+            case "updateStatus":
+              console.log(row)
+              updateStatus(row.id).then((res) => {
+                this.$message({
+                  message: "修改成功",
+                  type: "success",
+                });
+                this.getList();
+              });
+              break;
+
+            default:
+              break;
+          }
         },
       },
     },

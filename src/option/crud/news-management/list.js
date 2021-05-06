@@ -1,3 +1,5 @@
+import {baseUrl} from '@/config/env'
+
 export default () => {
   return {
     translate: false,
@@ -14,39 +16,62 @@ export default () => {
     column: [{
       label: "封面图",
       offset: 1,
-      prop: "url",
+      prop: "photo",
       type: 'upload',
       listType: 'picture-img',
       accept: 'image/jpeg,image/png',
+      action: baseUrl + '/upload',
       tip: '只能上传jpg/png文件，750*470，690*150',
       rows: 1,
       // span: 7,
-      rules: [
-        {
-          required: true,
-          message: "请上传图片",
-          trigger: "blur",
-        },
-      ]
+      // rules: [
+      //   {
+      //     required: true,
+      //     message: "请上传图片",
+      //     trigger: "blur",
+      //   },
+      // ]
     }, {
       label: "新闻名称",
-      prop: "newsName",
-      type: 'select',
-      // dicData: [{
-      //   label: '男',
-      //   value: 0
-      // }, {
-      //   label: '女',
-      //   value: 1
-      // }],
+      prop: "name",
       search: true,
     },{
       label: "新闻分类",
-      prop: "newsType",
+      prop: "typeId",
     },
       {
         label: "修改时间",
-        prop: "newsChangeTimes",
-      },],
+        prop: "updateTime",
+        addDisplay: false,
+        editDisplay: false
+      },
+      {
+        label: "状态",
+        prop: "status",
+        type: 'select',
+        value: 0,
+        dicData: [{
+          label: "上架",
+          value: 0
+        }, {
+          label: "下架",
+          value: 1
+        }],
+
+      },
+      {
+        label: "新闻介绍",
+        prop: "detail",
+        type: 'ueditor',
+        hide: true,
+        span: 24,
+        options: {
+          action: baseUrl + "/upload/",
+          props: {
+            url: "url"
+          },
+        }
+      }
+    ],
   }
 }
