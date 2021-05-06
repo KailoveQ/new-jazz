@@ -217,6 +217,20 @@ const user = {
         let menu = [
           /* eslint-disable */
           {
+            label: "栏目管理",
+            path: '/column-management',
+            meta: {
+            },
+            icon: 'icon-caidan',
+            children: [{
+              label: "岗位管理",
+              path: 'index',
+              component: 'views/column-management/index',
+              icon: 'icon-caidan',
+              children: []
+            },]
+          },
+          {
             label: "公司信息",
             path: '/company-information',
             meta: {
