@@ -52,7 +52,7 @@ export default () => {
         label: "产品分类",
         prop: "typeId",
         hide: false,
-        value:　'1',
+        value:　1,
       },
       {
         label: "状态",

@@ -137,9 +137,15 @@ const first = [
       icon: 'icon-caidan',
       children: []
     }, {
-      label: "图片修改",
+      label: "宣传片图片修改",
       path: 'imageEditor',
       component: 'views/system-settings/imageEditor',
+      icon: 'icon-caidan',
+      children: []
+    },{
+      label: "其他图片修改",
+      path: 'othersImageEditor',
+      component: 'views/system-settings/othersImageEditor',
       icon: 'icon-caidan',
       children: []
     },]

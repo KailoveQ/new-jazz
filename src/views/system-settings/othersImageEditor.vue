@@ -26,7 +26,7 @@
   </basic-container>
 </template>
 <script>
-import { updateStatus } from "@/api/crud/case-management/list";
+import { updateStatus } from "@/api/crud/system-settings/othersImageEditor";
 export default window.$crudCommon(
     {
       data() {
@@ -67,7 +67,7 @@ export default window.$crudCommon(
       },
     },
     {
-      name: "crud/case-management/list", //模块名字
+      name: "crud/system-settings/othersImageEditor", //模块名字
       list: "list", //列表接口名字
       update: "update", //更新接口名字
       add: "add", //新增接口名字

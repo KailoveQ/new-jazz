@@ -1,7 +1,7 @@
 
 import request from '@/router/axios';
 import { baseUrl } from '@/config/env';
-const apiUrl = `${baseUrl}/case`
+const apiUrl = `${baseUrl}/photo`
 export const list = ({networkId=1,pageSize=10,pageIndex=1}) => {
   return request({
     url:  `${apiUrl}/${networkId}/${pageSize}/${pageIndex}`,

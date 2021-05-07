@@ -357,7 +357,14 @@ const user = {
               component: 'views/system-settings/imageEditor',
               icon: 'icon-caidan',
               children: []
-            },]
+            },
+              {
+                label: "其他图片修改",
+                path: 'othersImageEditor',
+                component: 'views/system-settings/othersImageEditor',
+                icon: 'icon-caidan',
+                children: []
+              },]
           },
           {
             label: "权限管理",
