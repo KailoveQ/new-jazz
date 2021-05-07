@@ -16,17 +16,17 @@ export default () => {
     column: [ {
         label: "岗位名称",
         prop: "name",
-        // rules: [
-        //   {
-        //     required: true,
-        //     message: "请输入岗位名称",
-        //     trigger: "blur",
-        //   },
-        // ]
+        rules: [
+          {
+            required: true,
+            message: "请输入岗位名称",
+            trigger: "blur",
+          },
+        ]
       },
       {
         label: "修改时间",
-        prop: "createTime",
+        prop: "updateTime",
         addDisplay: false,
         editDisplay: false
       },
@@ -47,13 +47,14 @@ export default () => {
       {
         label: "岗位详情",
         prop: "detail",
-        // type: 'ueditor',
+        type: 'ueditor',
         hide: true,
         span: 24,
         options: {
           action: baseUrl + "/upload/",
           props: {
-            url: "url"
+            res:'data',
+            url: "absolutePath"
           },
         },
         // rules: [

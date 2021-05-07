@@ -25,9 +25,10 @@ export default () => {
         trigger: "blur"
       }]
     },{
-      label: "邮箱",
-      prop: "email",
-      span: 7,
+      label: "合作内容",
+      prop: "cooperative-contents",
+      type: "textarea",
+      rows: 4,
       row: true,
       offset: 1,
       rules: [{
@@ -35,19 +36,6 @@ export default () => {
         message: "请输入邮箱",
         trigger: "blur"
       }]
-    },{
-      label: "地址",
-      prop: "adress",
-      span: 7,
-      row: true,
-      offset: 1,
-      rules: [{
-        required: true,
-        message: "请输入地址",
-        trigger: "blur"
-      }]
     }]
   }
 }
-
-

@@ -2,10 +2,10 @@
  * 全局配置文件
  */
 export default {
-  title: "车融易管理后台",
+  title: "新爵士管理后台",
   logo: "M",
   key: 'muck-truck-client',//配置主键,目前用于存储
-  indexTitle: '车融易管理后台',
+  indexTitle: '新爵士管理后台',
   lockPage: '/lock',
   tokenTime: 60000,//token过期时间
   Authorization: 'Authorization',
@@ -14,7 +14,7 @@ export default {
   //配置首页不可关闭
   isFirstPage: false,
   fistPage: {
-    label: "首页",
+    label: "管理后台主页",
     value: "/wel/index",
     params: {},
     query: {},

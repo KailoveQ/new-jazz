@@ -1,8 +1,9 @@
+import { baseUrl } from '@/config/env';
 export default () => {
   return {
     translate: false,
     searchLabelWidth: 100,
-    excelBtn: false,
+    excelBtn: false, viewBtn: true,
     labelWidth: 110,
     selection: true,
     tip: false,
@@ -11,75 +12,88 @@ export default () => {
     headerAlign: 'center',
     border: true,
     stripe: true,
+    searchShow: false,
     column: [
       {
-      label: "图片",
-      prop: "entImg",
-      type: 'upload',
-      listType: 'picture-img',
-      accept: 'image/jpeg,image/png',
-      span: 12,
-      row: true,
-      // action: baseUrl + '/oss/upload',
-      rules: [
-        {
-          required: true,
-          message: "请上传门店照片",
-          trigger: "blur",
-        },
-      ]
-    },
-      {
-      label: "产品名称",
-      prop: "prodName",
-      search: true,
-      rules: [
-          {
-            required: true,
-            message: "请输入产品名称",
-            trigger: "blur",
-          },
-      ]
-    },
-      {
-      label: "产品分类",
-      prop: "prodType",
-      type: 'select',
-      dicData: [{
-        label: '男',
-        value: 0
-      }, {
-        label: '女',
-        value: 1
-      }],
-      search: true,
-    },
-      {
-        label: "修改时间",
-        prop: "changeTimes",
-        search: true,
-        addDisplay: false
+        label: "ID",
+        prop: "id",
+        addDisplay: false,
+        hide: true
       },
       {
-        label: "产品详情",
-        prop: "prodConetnt",
-        type: 'ueditor',
-        hide: true,
+        label: "图片",
+        prop: "photo",
+        type: 'upload',
+        listType: 'picture-img',
+        accept: 'image/jpeg,image/png',
+        action: baseUrl + '/upload',
+        tip: '只能上传jpg/png文件，750*470，690*150',
+        row: true,
         span: 24,
-        options: {
-          // action: baseUrl + "/oss/upload",
-          props: {
-            url: "url"
-          },
+        propsHttp: {
+          res: 'data',
+          url:'absolutePath'
         },
         rules: [
           {
             required: true,
-            message: "请输入产品详情",
+            message: "请上传图片",
             trigger: "blur",
           },
         ]
-      }
+      },
+      {
+        label: "产品名称",
+        prop: "name",
+        // addDisplay: false,
+        // editDisplay: false
+      },
+      {
+        label: "产品分类",
+        prop: "typeId",
+        hide: false,
+        value:　'1',
+      },
+      {
+        label: "状态",
+        prop: "status",
+        hide: false,
+        type: 'select',
+        value: 0,
+        dicData: [{
+          label: "上架",
+          value: 0
+        }, {
+          label: "下架",
+          value: 1
+        }],
+      },
+      {
+        label: "修改时间",
+        prop: "updateTime",
+        addDisplay: false,
+      },
+      {
+        label: "产品介绍",
+        prop: "detail",
+        type: 'ueditor',
+        hide: true,
+        span: 24,
+        options: {
+          action: baseUrl + "/upload/",
+          props: {
+            res:'data',
+            url: "absolutePath"
+          },
+        },
+        // rules: [
+        //   {
+        //     required: true,
+        //     message: "请输入岗位详情",
+        //     trigger: "blur",
+        //   },
+        // ]
+      },
     ],
   }
 }

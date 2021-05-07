@@ -1,8 +1,9 @@
+import { baseUrl } from '@/config/env';
 export default () => {
   return {
     translate: false,
     searchLabelWidth: 100,
-    excelBtn: false,
+    excelBtn: false, viewBtn: true,
     labelWidth: 110,
     selection: true,
     tip: false,
@@ -11,43 +12,61 @@ export default () => {
     headerAlign: 'center',
     border: true,
     stripe: true,
+    searchShow: false,
     column: [
       {
-        label: "图片",
-        prop: "entImg",
-        // action: baseUrl + '/oss/upload',
+        label: "ID",
+        prop: "id",
+        addDisplay: false,
+        hide: true
       },
+      {
+      label: "图片",
+      prop: "photo",
+      type: 'upload',
+      listType: 'picture-img',
+      accept: 'image/jpeg,image/png',
+      action: baseUrl + '/upload',
+      tip: '只能上传jpg/png文件，750*470，690*150',
+      row: true,
+      propsHttp: {
+        res: 'data',
+        url:'absolutePath'
+      },
+      rules: [
+        {
+          required: true,
+          message: "请上传图片",
+          trigger: "blur",
+        },
+      ]
+    },
       {
         label: "图片名称",
-        prop: "pictureName",
-        search: true,
-        rules: [
-          {
-            required: true,
-            message: "请输入案例名称",
-            trigger: "blur",
-          },
-        ]
+        prop: "name",
+        // addDisplay: false,
+        // editDisplay: false
+
       },
       {
-        label: "尺寸",
-        prop: "pictureSize",
+        label: "状态",
+        prop: "status",
+        hide: false,
         type: 'select',
+        value: 0,
         dicData: [{
-          label: '男',
+          label: "上架",
           value: 0
         }, {
-          label: '女',
+          label: "下架",
           value: 1
         }],
-        search: true,
       },
       {
         label: "修改时间",
-        prop: "changeTimes",
-        search: true,
-        addDisplay: false
-      }
+        prop: "updateTime",
+        addDisplay: false,
+      },
     ],
   }
 }

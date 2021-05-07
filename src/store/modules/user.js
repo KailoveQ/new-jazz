@@ -221,14 +221,9 @@ const user = {
             path: '/column-management',
             meta: {
             },
+            component: 'views/column-management/index',
             icon: 'icon-caidan',
-            children: [{
-              label: "岗位管理",
-              path: 'index',
-              component: 'views/column-management/index',
-              icon: 'icon-caidan',
-              children: []
-            },]
+            children: [],
           },
           {
             label: "公司信息",
