@@ -40,6 +40,11 @@ export default {
         stripe: true,
         column: [
           {
+            label: "公司id",
+            prop: "id",
+            row: true,
+          },
+          {
             label: "公司名称",
             prop: "name",
             row: true,
@@ -143,6 +148,7 @@ export default {
       getdate().then(({ data }) => {
         console.log(data)
         this.data = data.data[0];
+        console.log(data)
         this.loading = false;
       });
     },
