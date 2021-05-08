@@ -1,4 +1,9 @@
-
+<!--
+ * @Date: 2021-03-15 13:28:35
+ * @LastEditors: Mingdeng
+ * @LastEditTime: 2021-03-17 16:24:57
+ * @FilePath: /che-rongyi-management/src/views/service-items/shenche-price.vue
+-->
 <template>
   <basic-container>
     <avue-form
@@ -15,6 +20,7 @@
 
 <script>
 import { getdate, update } from "@/api/crud/contact-us/companyInformation";
+import {baseUrl} from '@/config/env'
 export default {
   data() {
     return {
@@ -36,8 +42,6 @@ export default {
           {
             label: "公司名称",
             prop: "name",
-            type: "number",
-            value: 1,
             row: true,
             rules: [
               {
@@ -51,10 +55,12 @@ export default {
             label: "联系电话",
             prop: "phone",
             row: true,
+            value: '我是电话号码',
+            // type: "string",
             rules: [
               {
                 required: true,
-                message: "联系电话",
+                message: "请输入 联系电话",
                 trigger: "blur",
               },
             ],
@@ -63,8 +69,6 @@ export default {
             label: "邮箱",
             prop: "email",
             row: true,
-            value: 'aaa@qq.com',
-            // type: "string",
             rules: [
               {
                 required: true,
@@ -86,13 +90,27 @@ export default {
             ],
           },
           {
-            label: "咨询合作",
+            label: "合作内容",
             prop: "detail",
             row: true,
+          },
+          {
+            label: "类型",
+            prop: "type",
+            row: true,
+            type: 'select',
+            value: 1,
+            dicData: [{
+              label: "公司信息",
+              value: 1
+            }, {
+              label: "咨询合作",
+              value: 2
+            }],
             rules: [
               {
                 required: true,
-                message: "请输入 合作内容",
+                message: "请输入 类型",
                 trigger: "blur",
               },
             ],
@@ -117,23 +135,22 @@ export default {
   //   this.getdate();
   // },
   created() {
-
     this.getdate();
-    console.log(this.data)
   },
   methods: {
     getdate() {
       this.loading = true;
       getdate().then(({ data }) => {
-        this.data = data.data;
+        console.log(data)
+        this.data = data.data[0];
         this.loading = false;
-        console.log(this.data)
       });
     },
     handleSubmit() {
       this.$refs.form.validate((vaild, done) => {
         if (vaild) {
           update(this.data).then(() => {
+            console.log(this.data)
             this.$message.success("修改成功");
             done();
             this.getdate();

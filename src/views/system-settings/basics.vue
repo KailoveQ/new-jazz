@@ -20,6 +20,7 @@
 
 <script>
 import { getdate, update } from "@/api/crud/system-settings/basics.js";
+import {baseUrl} from '@/config/env'
 export default {
   data() {
     return {
@@ -53,16 +54,26 @@ export default {
             ],
           },
           {
-            label: "网站logourl",
+            label: "网站logo",
             prop: "logo",
+            type: 'upload',
             row: true,
+            listType: 'picture-img',
+            accept: 'image/jpeg,image/png',
+            action: baseUrl + '/upload',
+            tip: '只能上传jpg/png文件，750*470，690*150',
+            span: 24,
+            propsHttp: {
+              res: 'data',
+              url:'absolutePath'
+            },
             rules: [
               {
                 required: true,
-                message: "请输入网站logo url",
+                message: "请上传图片",
                 trigger: "blur",
               },
-            ],
+            ]
           },
           {
             label: "前台域名地址",
@@ -80,7 +91,7 @@ export default {
           },
           {
             label: "关键字",
-            prop: "keyword",
+            prop: "kayword",
             row: true,
             rules: [
               {
@@ -151,17 +162,26 @@ export default {
             ],
           },
           {
-            label: "二维码",
+            label: "网站 二维码",
             prop: "qcode",
-            // type: "string",
+            type: 'upload',
             row: true,
+            listType: 'picture-img',
+            accept: 'image/jpeg,image/png',
+            action: baseUrl + '/upload',
+            tip: '只能上传jpg/png文件，750*470，690*150',
+            span: 24,
+            propsHttp: {
+              res: 'data',
+              url:'absolutePath'
+            },
             rules: [
               {
                 required: true,
-                message: "请输入 二维码",
+                message: "请上传二维码",
                 trigger: "blur",
               },
-            ],
+            ]
           },
           {
             label: "底部文字",

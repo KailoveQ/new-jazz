@@ -354,32 +354,7 @@ const user = {
                 children: []
               },]
           },
-          {
-            label: "权限管理",
-            path: '/authority-management',
-            meta: {
-            },
-            icon: 'icon-caidan',
-            children: [{
-              label: "角色列表",
-              path: 'roles',
-              component: 'views/authority-management/roles',
-              icon: 'icon-caidan',
-              children: []
-            }, {
-              label: "管理员列表",
-              path: 'user',
-              component: 'views/authority-management/user',
-              icon: 'icon-caidan',
-              children: []
-            }, {
-              label: "菜单列表",
-              path: 'menu',
-              component: 'views/authority-management/menu',
-              icon: 'icon-caidan',
-              children: []
-            },]
-          },
+
 
         ]
 

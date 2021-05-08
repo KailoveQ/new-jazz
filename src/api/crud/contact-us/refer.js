@@ -1,37 +1,18 @@
-
 import request from '@/router/axios';
 import { baseUrl } from '@/config/env';
-export const list = (data) => {
+const apiUrl = `${baseUrl}/contract`
+export const getdate = () => {
   return request({
-    url: baseUrl + '/crud/list',
+    url: `${apiUrl}/detail`,
     method: 'get',
-    meta: {
-      isSerialize: true
-    },
-    params: data
+    params: {
+      networkId: 1,
+      type: 2
+    }
   })
 }
-export const del = (id) => request.delete(baseUrl + '/crud/delete', {
-  params: {
-    id
-  }
-})
-export const add = (data) => request({
-  url: baseUrl + '/crud/add',
+export const update = (data) => request({
+  url: `${apiUrl}/1`,
   method: 'post',
-  meta: {
-    isSerialize: true
-  },
   data: data
 })
-export const update = (id, data) => request({
-  url: baseUrl + '/crud/update',
-  method: 'put',
-  meta: {
-    isSerialize: true
-  },
-  data: data
-})
-
-
-
