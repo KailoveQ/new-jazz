@@ -17,21 +17,9 @@ const first = [
     },
     icon: 'icon-caidan',
     children: [{
-      label: "公司概况",
+      label: "基础信息",
       path: 'intro',
       component: 'views/company-information/intro',
-      icon: 'icon-caidan',
-      children: []
-    }, {
-      label: "企业文化",
-      path: 'culture',
-      component: 'views/company-information/culture',
-      icon: 'icon-caidan',
-      children: []
-    }, {
-      label: "发展历程",
-      path: 'course',
-      component: 'views/company-information/course',
       icon: 'icon-caidan',
       children: []
     }, {
@@ -137,7 +125,7 @@ const first = [
       icon: 'icon-caidan',
       children: []
     }, {
-      label: "宣传片图片修改",
+      label: "轮播图修改",
       path: 'imageEditor',
       component: 'views/system-settings/imageEditor',
       icon: 'icon-caidan',
