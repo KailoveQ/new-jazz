@@ -54,23 +54,23 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@/styles/mixin.scss";
-.index-p {
-  padding: 0 30px;
-  .order-count {
-    display: flex;
-    .item {
-      flex: 1;
-      margin: 0 10rpx;
-      @include bgSettings();
-      background-image: url("/img/index/index-count-bg-00.png");
-      background-position: center top;
-      .count {
-        // font-size: 45px;
-        font-family: DIN;
-        font-weight: bold;
-        color: #ffffff;
-      }
-    }
-  }
-}
+//.index-p {
+//  padding: 0 30px;
+//  .order-count {
+//    display: flex;
+//    .item {
+//      flex: 1;
+//      margin: 0 10px;
+//      @include bgSettings();
+//      background-image: url("/img/index/index-count-bg-00.png");
+//      background-position: center top;
+//      .count {
+//        // font-size: 45px;
+//        font-family: DIN;
+//        font-weight: bold;
+//        color: #ffffff;
+//      }
+//    }
+//  }
+//}
 </style>
