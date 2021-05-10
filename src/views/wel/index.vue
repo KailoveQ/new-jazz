@@ -1,11 +1,13 @@
 <template>
-  <div class="index-p">
-    <el-button type="primary" @click="option.switchTheme=!option.switchTheme" size="small">{{option.switchTheme?'关闭主题':'打开主题'}}</el-button>
-    <el-button @click="theme='macarons'" size="small">换紫色主题</el-button>
-    <el-button @click="theme='wonderland'" size="small">换绿色主题</el-button>
-
-
+  <div class="container">
+    <span>访问统计</span>
+    <div class="butGroup">
+      <el-button size="small">近7天</el-button>
+      <el-button size="small">近30天</el-button>
+      <el-button size="small">近90天</el-button>
+    </div>
     <avue-echart-line  :option="option" :data="data" width="800"></avue-echart-line>
+
   </div>
 
 
@@ -52,8 +54,8 @@ export default {
       },
       option: {
         switchTheme:true,
-        width: 800,
-        height: 400,
+        width: 1200,
+        height: 800,
         title: '手机大比拼',
         smooth: true,//是否顺滑
         areaStyle: false,//是否面积
@@ -65,10 +67,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@/styles/mixin.scss";
-.index-p {
+.container{
+  padding: 0 200px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 0 100px;
+  & .butGroup{
+
+  }
 }
 </style>

@@ -2,10 +2,13 @@
 import request from '@/router/axios';
 import { baseUrl } from '@/config/env';
 const apiUrl = `${baseUrl}/trailer`
-export const list = ({networkId=1,pageSize=10,pageIndex=1}) => {
+export const list = ({networkId=1,pageSize=10,pageIndex=1,}) => {
   return request({
     url:  `${apiUrl}/${networkId}/${pageSize}/${pageIndex}`,
-    method:'post'
+    method:'post',
+    params: {
+      type : 1
+    }
     // meta: {
     //   isSerialize: true
     // },
@@ -27,6 +30,7 @@ export const add = (data) => request({
   url: `${apiUrl}/1`,
   method: 'put',
   data: data
+
 })
 export const update = (id,data) => request({
   url: `${apiUrl}/${id}`,

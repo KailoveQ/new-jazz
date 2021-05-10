@@ -326,7 +326,13 @@ const user = {
               component: 'views/contact-us/refer',
               icon: 'icon-caidan',
               children: []
-            },]
+            },{
+              label: "留言列表",
+              path: 'messageList.js',
+              component: 'views/contact-us/messageList',
+              icon: 'icon-caidan',
+              children: []
+            }]
           },
           {
             label: "系统设置",

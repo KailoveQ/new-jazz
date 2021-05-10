@@ -21,13 +21,14 @@ export default () => {
         hide: true
       },
       {
-        label: "宣传片",
+        label: "图片",
         prop: "photo",
         type: 'upload',
         listType: 'picture-img',
-        accept:"video/mp4",
+        accept: 'image/jpeg,image/png',
         action: baseUrl + '/upload',
-        tip: '只能上传mp4文件，750*470，690*150',
+        tip: '只能上传jpg/png文件，750*470，690*150',
+        span: 24,
         propsHttp: {
           res: 'data',
           url:'absolutePath'
@@ -41,27 +42,31 @@ export default () => {
         ]
       },
       {
-        label: "宣传片名称",
-        span: "24",
+        label: "新闻名称",
         prop: "name",
-        row: "true"
+        row:true,
         // addDisplay: false,
         // editDisplay: false
-
       },
       {
-        label: "类型",
-        prop: "type",
-        value: "视频类型",
-        type: 'select',
-        dicData: [{
-          label: "视频类型",
-          value: 2
-        }],
+        label: "新闻分类",
+        prop: "typeId",
+        hide: false,
+        value:　1,
+        row: true,
+      },
+      {
+        label: "新闻分类名称",
+        prop: "typeName",
+        row: true,
+        hide: true,
+        value:　1,
+        addDisplay: false
       },
       {
         label: "状态",
         prop: "status",
+        row: true,
         hide: false,
         type: 'select',
         value: 0,
@@ -77,7 +82,45 @@ export default () => {
         label: "修改时间",
         prop: "updateTime",
         addDisplay: false,
+        hide: false
       },
+      {
+        label: "新闻简介",
+        prop: "brief",
+        type: 'textarea',
+        hide: true,
+        row: true,
+        span: 24,
+        rules: [
+          {
+            required: true,
+            message: "请输入新闻简介",
+            trigger: "blur",
+          },
+        ]
+      },
+      {
+        label: "新闻介绍",
+        prop: "detail",
+        type: 'textarea',
+        hide: true,
+        row: true,
+        span: 24,
+        options: {
+          action: baseUrl + "/upload/",
+          props: {
+            res:'data',
+            url: "absolutePath"
+          },
+        },
+        // rules: [
+        //   {
+        //     required: true,
+        //     message: "请输入岗位详情",
+        //     trigger: "blur",
+        //   },
+        // ]
+      }
     ],
   }
 }

@@ -43,6 +43,7 @@ export default {
             label: "公司id",
             prop: "id",
             row: true,
+            value: "1"
           },
           {
             label: "公司名称",
@@ -105,13 +106,11 @@ export default {
             prop: "type",
             row: true,
             type: 'select',
+            disabled: true,
             value: 1,
             dicData: [{
               label: "公司信息",
               value: 1
-            }, {
-              label: "咨询合作",
-              value: 2
             }],
             rules: [
               {

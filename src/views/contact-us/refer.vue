@@ -40,7 +40,7 @@ export default {
         stripe: true,
         column: [
           {
-            label: "公司id",
+            label: "联系id",
             prop: "id",
             row: true,
           },
@@ -105,11 +105,9 @@ export default {
             prop: "type",
             row: true,
             type: 'select',
+            disabled: true,
             value: 1,
             dicData: [{
-              label: "公司信息",
-              value: 1
-            }, {
               label: "咨询合作",
               value: 2
             }],

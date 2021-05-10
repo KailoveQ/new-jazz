@@ -2,7 +2,7 @@
   <basic-container>
     <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
 
-      <template slot="menuLeft">
+      <template slot="menuRight">
         <el-button
             type="primary"
             icon="el-icon-download"

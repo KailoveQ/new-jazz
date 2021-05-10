@@ -49,6 +49,16 @@ export default () => {
 
       },
       {
+        label: "类型",
+        prop: "type",
+        value: 1,
+        type: 'select',
+        dicData: [{
+          label: "图片类型",
+          value: 1
+        }],
+      },
+      {
         label: "状态",
         prop: "status",
         hide: false,

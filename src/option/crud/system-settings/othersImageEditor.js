@@ -90,6 +90,9 @@ export default () => {
         },{
           label: "联系-联系页面地图",
           value: 12
+        },{
+          label: "首页-视频封面图",
+          value: 13
         }],
       },
       {
