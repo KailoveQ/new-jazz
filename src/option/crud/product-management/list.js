@@ -76,7 +76,7 @@ export default () => {
       {
         label: "产品介绍",
         prop: "detail",
-        type: 'ueditor',
+        type: 'textarea',
         hide: true,
         span: 24,
         options: {

@@ -17,6 +17,12 @@ export const list = ({networkId=1,pageSize=10,pageIndex=1}) => {
 //     id
 //   }
 // })
+export const exPort = (id) => request({
+  url: `${apiUrl}/1/export`,
+  method: 'get',
+  data: [id]
+})
+
 export const del = (id) => request({
   url: `${apiUrl}/`,
   method: 'delete',

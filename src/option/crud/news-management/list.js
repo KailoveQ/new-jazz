@@ -42,21 +42,21 @@ export default () => {
         ]
       },
       {
-        label: "产品名称",
+        label: "新闻名称",
         prop: "name",
         row:true,
         // addDisplay: false,
         // editDisplay: false
       },
       {
-        label: "产品分类",
+        label: "新闻分类",
         prop: "typeId",
         hide: false,
         value:　1,
         row: true,
       },
       {
-        label: "产品分类名称",
+        label: "新闻分类名称",
         prop: "typeName",
         row: true,
         hide: true,
@@ -85,9 +85,24 @@ export default () => {
         hide: false
       },
       {
-        label: "产品介绍",
+        label: "新闻简介",
+        prop: "brief",
+        type: 'textarea',
+        hide: true,
+        row: true,
+        span: 24,
+        rules: [
+          {
+            required: true,
+            message: "请输入新闻简介",
+            trigger: "blur",
+          },
+        ]
+      },
+      {
+        label: "新闻介绍",
         prop: "detail",
-        type: 'ueditor',
+        type: 'textarea',
         hide: true,
         row: true,
         span: 24,
@@ -105,7 +120,7 @@ export default () => {
         //     trigger: "blur",
         //   },
         // ]
-      },
+      }
     ],
   }
 }

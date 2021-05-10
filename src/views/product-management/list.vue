@@ -2,6 +2,17 @@
   <basic-container>
     <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
 
+      <template slot="menuLeft">
+        <el-button
+            type="primary"
+            icon="el-icon-download"
+            size="small"
+            plain
+            @click="handleExportExcel"
+        >导 出
+        </el-button>
+      </template>
+
       <template slot-scope="{ type, size, row }" slot="menu">
         {{status}}
         <el-button
@@ -22,15 +33,22 @@
         </el-button>
 
       </template>
+
     </avue-crud>
   </basic-container>
 </template>
 <script>
 import { updateStatus } from "@/api/crud/product-management/list";
+import exportExcel from '@/mixins/exportExcel'
 export default window.$crudCommon(
     {
+      mixins: [exportExcel],
       data() {
         return {
+          // templateUrl: "/member/importTemplate",
+          exportExcelUrl: "/product/1/export",
+          exportName:"产品导出报表.xls"
+          // dialogType: "add",
         };
       },
       computed: {

@@ -56,6 +56,7 @@ const user = {
         loginByUsername(userInfo.username, userInfo.password, userInfo.code, userInfo.redomStr).then(res => {
           console.log(userInfo)
           console.log(res)
+          const userId = res.data.data.userId
           const data = res.data.data.token;
           commit('SET_TOKEN', data);
           commit('DEL_ALL_TAG');

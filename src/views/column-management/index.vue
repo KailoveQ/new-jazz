@@ -22,7 +22,7 @@ export default window.$crudCommon(
     pageNumber: "pageIndex", //页码
     pageSize: "pageSize", //页数
     res: (data) => {
-      console.log(data)
+
       return data;
     }, //列表的结构
     total: "total", //总页数

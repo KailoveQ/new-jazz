@@ -2,6 +2,18 @@
   <basic-container>
     <avue-crud v-bind="bindVal" v-on="onEvent" v-model="form" :page.sync="page">
 
+
+      <template slot="menuLeft">
+        <el-button
+            type="primary"
+            icon="el-icon-download"
+            size="small"
+            plain
+            @click="handleExportExcel"
+        >导 出
+        </el-button>
+      </template>
+
       <template slot-scope="{ type, size, row }" slot="menu">
         {{status}}
         <el-button
@@ -23,14 +35,21 @@
 
       </template>
     </avue-crud>
+
   </basic-container>
 </template>
 <script>
 import { updateStatus } from "@/api/crud/recruitment-management/manage";
+import exportExcel from "@/mixins/exportExcel";
 export default window.$crudCommon(
     {
+      mixins: [exportExcel],
       data() {
         return {
+          // templateUrl: "/member/importTemplate",
+          exportExcelUrl: "/recruit/1/export",
+          exportName:"招聘导出报表.xls"
+          // dialogType: "add",
         };
       },
       computed: {
@@ -50,7 +69,7 @@ export default window.$crudCommon(
           // console.log(`${type},${row},${params}`)
           switch (type) {
             case "updateStatus":
-              console.log(row)
+
               updateStatus(row.id).then((res) => {
                 this.$message({
                   message: "修改成功",
@@ -69,6 +88,7 @@ export default window.$crudCommon(
   {
     name: "crud/recruitment-management/manage", //模块名字
     list: "list", //列表接口名字
+    export: "exPort",
     update: "update", //更新接口名字
     add: "add", //新增接口名字
     del: "del", //删除接口名字

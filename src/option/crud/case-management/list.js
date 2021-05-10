@@ -43,13 +43,13 @@ export default () => {
         ]
       },
       {
-        label: "产品名称",
+        label: "案例名称",
         prop: "name",
         // addDisplay: false,
         // editDisplay: false
       },
       {
-        label: "产品分类",
+        label: "案例分类",
         prop: "typeId",
         hide: false,
         value:　'1',
@@ -74,9 +74,9 @@ export default () => {
         addDisplay: false,
       },
       {
-        label: "产品介绍",
+        label: "案例介绍",
         prop: "detail",
-        type: 'ueditor',
+        type: 'textarea',
         hide: true,
         span: 24,
         options: {

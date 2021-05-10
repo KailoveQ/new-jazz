@@ -98,6 +98,7 @@ export default {
             label: "合作内容",
             prop: "detail",
             row: true,
+            type: "textarea"
           },
           {
             label: "类型",
@@ -146,9 +147,9 @@ export default {
     getdate() {
       this.loading = true;
       getdate().then(({ data }) => {
-        console.log(data)
+
         this.data = data.data[0];
-        console.log(data)
+
         this.loading = false;
       });
     },
@@ -156,7 +157,7 @@ export default {
       this.$refs.form.validate((vaild, done) => {
         if (vaild) {
           update(this.data).then(() => {
-            console.log(this.data)
+
             this.$message.success("修改成功");
             done();
             this.getdate();

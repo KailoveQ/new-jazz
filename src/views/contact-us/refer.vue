@@ -1,4 +1,9 @@
-
+<!--
+ * @Date: 2021-03-15 13:28:35
+ * @LastEditors: Mingdeng
+ * @LastEditTime: 2021-03-17 16:24:57
+ * @FilePath: /che-rongyi-management/src/views/service-items/shenche-price.vue
+-->
 <template>
   <basic-container>
     <avue-form
@@ -15,6 +20,7 @@
 
 <script>
 import { getdate, update } from "@/api/crud/contact-us/refer";
+import {baseUrl} from '@/config/env'
 export default {
   data() {
     return {
@@ -34,6 +40,11 @@ export default {
         stripe: true,
         column: [
           {
+            label: "公司id",
+            prop: "id",
+            row: true,
+          },
+          {
             label: "公司名称",
             prop: "name",
             row: true,
@@ -45,28 +56,40 @@ export default {
               },
             ],
           },
-          // {
-          //   label: "类型",
-          //   prop: "type",
-          //   type: 'select',
-          //   row: true,
-          //   value: 1,
-          //   dicData: [{
-          //     label: "公司信息",
-          //     value: 1
-          //   }, {
-          //     label: "咨询合作",
-          //     value: 2
-          //   }],
-          // },
           {
             label: "联系电话",
             prop: "phone",
             row: true,
+            value: '我是电话号码',
+            // type: "string",
             rules: [
               {
                 required: true,
-                message: "联系电话",
+                message: "请输入 联系电话",
+                trigger: "blur",
+              },
+            ],
+          },
+          {
+            label: "邮箱",
+            prop: "email",
+            row: true,
+            rules: [
+              {
+                required: true,
+                message: "请输入 邮箱",
+                trigger: "blur",
+              },
+            ],
+          },
+          {
+            label: "地址",
+            prop: "address",
+            row: true,
+            rules: [
+              {
+                required: true,
+                message: "请输入 地址",
                 trigger: "blur",
               },
             ],
@@ -74,12 +97,26 @@ export default {
           {
             label: "合作内容",
             prop: "detail",
-            type: "textarea",
             row: true,
+            type: "textarea",
+          },
+          {
+            label: "类型",
+            prop: "type",
+            row: true,
+            type: 'select',
+            value: 1,
+            dicData: [{
+              label: "公司信息",
+              value: 1
+            }, {
+              label: "咨询合作",
+              value: 2
+            }],
             rules: [
               {
                 required: true,
-                message: "请输入 合作内容",
+                message: "请输入 类型",
                 trigger: "blur",
               },
             ],
@@ -110,7 +147,7 @@ export default {
     getdate() {
       this.loading = true;
       getdate().then(({ data }) => {
-        this.data = data.data;
+        this.data = data.data[0];
         this.loading = false;
       });
     },
@@ -118,6 +155,7 @@ export default {
       this.$refs.form.validate((vaild, done) => {
         if (vaild) {
           update(this.data).then(() => {
+
             this.$message.success("修改成功");
             done();
             this.getdate();

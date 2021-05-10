@@ -229,7 +229,6 @@ export default {
       this.$refs.form.validate((vaild, done) => {
         if (vaild) {
           update(this.data).then(() => {
-            console.log(this.data)
             this.$message.success("修改成功");
             done();
             this.getdate();
