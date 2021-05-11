@@ -45,6 +45,7 @@ export default {
             type: "number",
             value: 1,
             row: true,
+            disabled: true,
             rules: [
               {
                 required: true,

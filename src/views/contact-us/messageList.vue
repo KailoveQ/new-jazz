@@ -11,10 +11,21 @@ export default {
     return {
       data: [],
       option: {
-        title: '表格的标题',
-        titleSize: 'h3',
+        addBtn: false,
+        translate: false,
+        searchLabelWidth: 100,
+        excelBtn: false,
+        labelWidth: 110,
+        selection: true,
+        tip: false,
+        index: true,
+        headerAlign: 'center',
+        border: true,
+        stripe: true,
+        title: '留言列表',
         titleStyle: {
-          color: 'red'
+          color: 'black',
+          titleSize: 'h3'
         },
         page: false,
         align: 'center',
